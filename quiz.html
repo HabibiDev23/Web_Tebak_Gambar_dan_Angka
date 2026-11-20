@@ -8,11 +8,11 @@
     <script src="src/script.js"></script>
 
     <link rel="icon" type="image/svg+xml" href="">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&display=
-                                 swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <div class="starfield" aria-hidden="true"></div>
 
     <header>
         <div class="backbutton-box">
@@ -21,8 +21,21 @@
             </button>
         </div>
 
+        <label class="theme-switch" for="theme-switch" aria-label="Ganti tema gelap dan terang">
+            <input type="checkbox" id="theme-switch" class="theme-switch__input">
+            <span class="theme-switch__track">
+                <span class="theme-switch__stars" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <span class="theme-switch__cloud" aria-hidden="true"></span>
+                <span class="theme-switch__knob" aria-hidden="true"></span>
+            </span>
+        </label>
+
         <div class="logoright-box">
-            <img src="">
+            <img src="src/1.png" alt="Logo">
         </div>
     </header>
 
@@ -88,7 +101,7 @@
             </div>
 
             <div class="nextbutton-box">
-                    <button>Next</button>
+                <button>Next</button>
             </div>
         </div>
 
@@ -130,7 +143,7 @@
             </div>
 
             <div class="nextbutton-box">
-                    <button>Next</button>
+                <button>Next</button>
             </div>
         </div>
 
@@ -162,7 +175,7 @@
             </div>
 
             <div class="nextbutton-box">
-                    <button>Next</button>
+                <button>Next</button>
             </div>
         </div>
 
@@ -197,7 +210,7 @@
             </div>
 
             <div class="nextbutton-box">
-                    <button>Next</button>
+                <button>Next</button>
             </div>
         </div>
 
@@ -239,7 +252,7 @@
             </div>
 
             <div class="nextbutton-box">
-                    <button>Next</button>
+                <button>Next</button>
             </div>
         </div>
 
@@ -281,7 +294,7 @@
             </div>
 
             <div class="nextbutton-box">
-                    <button>Next</button>
+                <button>Next</button>
             </div>
         </div>
 
@@ -323,7 +336,7 @@
             </div>
 
             <div class="nextbutton-box">
-                    <button>Next</button>
+                <button>Next</button>
             </div>
         </div>
 
@@ -368,7 +381,7 @@
             </div>
 
             <div class="nextbutton-box">
-                    <button>Next</button>
+                <button>Next</button>
             </div>
         </div>
 
@@ -400,11 +413,34 @@
             </div>
 
             <div class="nextbutton-box">
-                    <button>Next</button>
+                <button>Next</button>
             </div>
         </div>
 
     </div>
-    
+
+    <script>
+      (function () {
+        const toggle = document.getElementById("theme-switch");
+        if (!toggle) return;
+
+        const STORAGE_KEY = "faceted-rose-theme";
+        const savedTheme = localStorage.getItem(STORAGE_KEY);
+
+        if (savedTheme === "light") {
+          toggle.checked = true;
+          document.body.classList.add("is-light-mode");
+        } else if (savedTheme === "dark") {
+          toggle.checked = false;
+          document.body.classList.remove("is-light-mode");
+        }
+
+        toggle.addEventListener("change", function () {
+          const isLight = toggle.checked;
+          document.body.classList.toggle("is-light-mode", isLight);
+          localStorage.setItem(STORAGE_KEY, isLight ? "light" : "dark");
+        });
+      })();
+    </script>
 </body>
 </html>
