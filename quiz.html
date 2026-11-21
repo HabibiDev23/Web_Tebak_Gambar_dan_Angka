@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Page</title>
     <link rel="stylesheet" href="src/quiz.css">
     <script src="src/script.js"></script>
 
-    <link rel="icon" type="image/svg+xml" href="">
+    <link rel="icon" type="image/svg+xml" href="src/shapeonly-dark.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Quiz Page</title>
 </head>
 <body>
     <div class="starfield" aria-hidden="true"></div>
@@ -35,15 +35,16 @@
         </label>
 
         <div class="logoright-box">
-            <img src="src/1.png" alt="Logo">
+            <img src="src/1.png" alt="Logo" class="logo logo-dark">
+            <img src="src/2.png" alt="Logo" class="logo logo-light">
         </div>
     </header>
 
     <div class="quiz-cont">
 
-        <div class="quiz1-box">
+        <div class="quiz1-box quiz-box is-active" data-step="0">
             <div class="number-box">
-                <h4></h4>
+                <h4>1</h4>
             </div>
 
             <div class="question-box">
@@ -67,15 +68,15 @@
                     <h4>D. 200</h4>
                 </div>
 
-                <div class="nextbutton-box">
-                    <button>Next</button>
+                <div class="nextbutton-box" id="btn-next-step">
+                    <button type="button">Next</button>
                 </div>
             </div>
         </div>
 
-        <div class="quiz2-box">
+        <div class="quiz2-box quiz-box" data-step="1">
             <div class="number-box">
-                <h4></h4>
+                <h4>2</h4>
             </div>
 
             <div class="question-box">
@@ -100,14 +101,14 @@
                 </div>
             </div>
 
-            <div class="nextbutton-box">
-                <button>Next</button>
+            <div class="nextbutton-box" id="btn-next-step">
+                <button type="button">Next</button>
             </div>
         </div>
 
-        <div class="quiz3-box">
+        <div class="quiz3-box quiz-box" data-step="2">
             <div class="number-box">
-                <h4></h4>
+                <h4>3</h4>
             </div>
 
             <div class="question-box">
@@ -142,14 +143,14 @@
                 </div>
             </div>
 
-            <div class="nextbutton-box">
-                <button>Next</button>
+            <div class="nextbutton-box" id="btn-next-step">
+                <button type="button">Next</button>
             </div>
         </div>
 
-        <div class="quiz4-box">
+        <div class="quiz4-box quiz-box" data-step="3">
             <div class="number-box">
-                <h4></h4>
+                <h4>4</h4>
             </div>
 
             <div class="question-box">
@@ -174,14 +175,14 @@
                 </div>
             </div>
 
-            <div class="nextbutton-box">
-                <button>Next</button>
+            <div class="nextbutton-box" id="btn-next-step">
+                <button type="button">Next</button>
             </div>
         </div>
 
-        <div class="quiz5-box">
+        <div class="quiz5-box quiz-box" data-step="4">
             <div class="number-box">
-                <h4></h4>
+                <h4>5</h4>
             </div>
 
             <div class="question-box">
@@ -209,14 +210,14 @@
                 </div>
             </div>
 
-            <div class="nextbutton-box">
-                <button>Next</button>
+            <div class="nextbutton-box" id="btn-next-step">
+                <button type="button">Next</button>
             </div>
         </div>
 
-        <div class="quiz6-box">
+        <div class="quiz6-box quiz-box" data-step="5">
             <div class="number-box">
-                <h4></h4>
+                <h4>6</h4>
             </div>
 
             <div class="question-box">
@@ -251,14 +252,14 @@
                 </div>
             </div>
 
-            <div class="nextbutton-box">
-                <button>Next</button>
+            <div class="nextbutton-box" id="btn-next-step">
+                <button type="button">Next</button>
             </div>
         </div>
 
-        <div class="quiz7-box">
+        <div class="quiz7-box quiz-box" data-step="6">
             <div class="number-box">
-                <h4></h4>
+                <h4>7</h4>
             </div>
 
             <div class="question-box">
@@ -293,14 +294,14 @@
                 </div>
             </div>
 
-            <div class="nextbutton-box">
-                <button>Next</button>
+            <div class="nextbutton-box" id="btn-next-step">
+                <button type="button">Next</button>
             </div>
         </div>
 
-        <div class="quiz8-box">
+        <div class="quiz8-box quiz-box" data-step="7">
             <div class="number-box">
-                <h4></h4>
+                <h4>8</h4>
             </div>
 
             <div class="question-box">
@@ -335,14 +336,14 @@
                 </div>
             </div>
 
-            <div class="nextbutton-box">
-                <button>Next</button>
+            <div class="nextbutton-box" id="btn-next-step">
+                <button type="button">Next</button>
             </div>
         </div>
 
-        <div class="quiz9-box">
+        <div class="quiz9-box quiz-box" data-step="8">
             <div class="number-box">
-                <h4></h4>
+                <h4>9</h4>
             </div>
 
             <div class="question-box">
@@ -380,14 +381,14 @@
                 </div>
             </div>
 
-            <div class="nextbutton-box">
-                <button>Next</button>
+            <div class="nextbutton-box" id="btn-next-step">
+                <button type="button">Next</button>
             </div>
         </div>
 
-        <div class="quiz10-box">
+        <div class="quiz10-box quiz-box" data-step="9">
             <div class="number-box">
-                <h4></h4>
+                <h4>10</h4>
             </div>
 
             <div class="question-box">
@@ -412,8 +413,8 @@
                 </div>
             </div>
 
-            <div class="nextbutton-box">
-                <button>Next</button>
+            <div class="nextbutton-box" id="btn-submit-quiz">
+                <button type="button">Submit</button>
             </div>
         </div>
 

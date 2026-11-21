@@ -108,6 +108,10 @@ html {
   scroll-behavior: smooth;
 }
 
+#home, #about, #process, #feature, #main {
+  scroll-margin-top: 120px;
+}
+
 body {
   font-family: var(--font-sans);
   color: var(--ink-bright);
@@ -219,13 +223,33 @@ header nav {
 .center-nav {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 2rem;
 }
 
-.center-nav img {
+.logo-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo-wrap .logo-light {
+  display: none;
+}
+
+body:has(#theme-switch:checked) .logo-wrap .logo-dark,
+body.is-light-mode .logo-wrap .logo-dark {
+  display: none;
+}
+
+body:has(#theme-switch:checked) .logo-wrap .logo-light,
+body.is-light-mode .logo-wrap .logo-light {
+  display: inline-block;
+}
+
+.center-nav .logo {
   max-height: 40px;
   width: auto;
   object-fit: contain;
+  transform: scale(1.5);
   filter: drop-shadow(0 2px 10px var(--glow-rose));
 }
 
@@ -505,15 +529,20 @@ footer {
   background: var(--surface-well);
   border: 1px solid var(--line-faint);
   overflow: hidden;
-  transition: background-color 450ms var(--theme-ease);
+  box-shadow: 0px 0px 0px var(--rose-700);
+  transition: background-color 450ms var(--theme-ease), box-shadow 0.3s var(--ease-out);
+}
+
+.marquee-container:hover {
+  box-shadow: 0px 0px 10px var(--rose-700);
 }
 
 .marquee-track {
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
   white-space: nowrap;
   width: max-content;
-  animation: marqueeSlide 24s linear infinite;
+  animation: marqueeSlide 30s linear infinite;
 }
 
 .marquee-track span {
@@ -521,6 +550,13 @@ footer {
   font-size: 0.88rem;
   color: var(--rose-400);
   font-weight: 600;
+}
+
+.marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .about,
@@ -563,6 +599,25 @@ footer {
 
 .description-text {
   margin-top: 0.75rem;
+}
+
+.fiturcard-parentcont {
+  background: linear-gradient(160deg, var(--hero-tint) 0%, transparent 45%), var(--surface-glass);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--line-mid);
+  clip-path: var(--poly-panel);
+  padding: clamp(1.5rem, 3vw, 2.75rem);
+  box-shadow: 0 24px 48px var(--shadow-drop);
+  transition: background 450ms var(--theme-ease), border-color 450ms var(--theme-ease);
+}
+
+.fiturcard-parentcont h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 1.15rem + 1.2vw, 2.2rem);
+  font-weight: 800;
+  text-align: left;
+  margin-bottom: 0.35rem;
 }
 
 .aboutcard-container,
@@ -665,6 +720,11 @@ footer {
   transition: transform 220ms var(--ease-snap), filter 220ms var(--ease-out);
 }
 
+.btn-cta a {
+  color: #fff8fa;
+  text-decoration: none;
+}
+
 .btn-cta:hover {
   transform: translateY(-2px);
   filter: brightness(1.08);
@@ -696,19 +756,26 @@ footer {
 
 .left-footer img {
   max-height: 36px;
+  transform: scale(3.3);
+  margin-left: 34px;
   margin-bottom: 0.65rem;
 }
 
 .left-footer p,
 .lowleft-footer p {
   color: var(--ink-soft);
+  letter-spacing: 1.5px;
   font-size: 0.88rem;
+}
+
+.lowleft-footer span {
+  font-weight: bold;
 }
 
 .social-box {
   margin-top: 0.85rem;
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .social-box a {
@@ -723,7 +790,11 @@ footer {
 }
 
 .center-footer h4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 0.98rem;
+  letter-spacing: 1px;
   margin-bottom: 0.55rem;
 }
 
@@ -732,14 +803,17 @@ footer {
 }
 
 .center-footer li {
-  display: flex;
   flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 0.4rem;
 }
 
 .center-footer a {
   color: var(--ink-soft);
   text-decoration: none;
+  letter-spacing: 1px;
   font-size: 0.88rem;
 }
 

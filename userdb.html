@@ -9,7 +9,7 @@
     <link rel="icon" type="image/svg+xml" href="">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&display=
                                  swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <title>MindMetric</title>
 </head>
 <body>
@@ -18,43 +18,48 @@
     <header>
         <nav>
             <div class="left-nav">
-                <a href="#">Beranda</a>
-                <a href="#">Tentang</a>
+                <a href="#home">Beranda</a>
+                <a href="#about">Tentang</a>
+                <a href="#feature">Fitur</a>
             </div>
 
             <div class="center-nav">
-                <img src="src/1.png" alt="Logo Utama">
+                <div class="logo-wrap">
+                    <img src="src/shapeonly-dark.png" alt="Logo Dark" class="logo logo-dark">
+                    <img src="src/shapeonly-light.png" alt="Logo Light" class="logo logo-light">
+                </div>
                 <label class="theme-switch" for="theme-switch" aria-label="Ganti tema gelap dan terang">
-    <input type="checkbox" id="theme-switch" class="theme-switch__input">
-    <span class="theme-switch__track">
-        <span class="theme-switch__stars" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-        </span>
-        <span class="theme-switch__cloud" aria-hidden="true"></span>
-        <span class="theme-switch__knob" aria-hidden="true"></span>
-    </span>
-</label>
+                    <input type="checkbox" id="theme-switch" class="theme-switch__input">
+                    <span class="theme-switch__track">
+                        <span class="theme-switch__stars" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                        <span class="theme-switch__cloud" aria-hidden="true"></span>
+                        <span class="theme-switch__knob" aria-hidden="true"></span>
+                    </span>
+                </label>
             </div>
 
             <div class="right-nav">
-                <a href="#">Proses</a>
-                <a href="#">Fitur</a>
+                <a href="#process">Proses</a>
+                <a href="#main">Mulai</a>
+                <a href="#biodata">Biodata</a>
             </div>
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="home">
         <h1>Temukan <span>Potensi</span> Kognitifmu</h1>
         <p>
             Platform tes kognitif berbasis metrik modern untuk mengukur tingkat kecerdasan, penalaran logis, dan potensi berpikirmu secara akurat dan 
             interaktif.
         </p>
 
-<button class="">
-    <a href="quiz.html">Uji Sekarang</a>
-</button>
+        <button class="">
+            <a href="#main">UJI SEKARANG !</a>
+        </button>
 
         <div class="right-imagebox">
             <img src="src/Scatter.jpe" alt="Gambar/Ilustrasi Utama">
@@ -63,16 +68,45 @@
 
     <div class="marquee-container">
         <div class="marquee-track">
-            <span>Penalaran Logis |</span>
-            <span>Pengenalan Pola |</span>
-            <span>Kesadaran Spasial |</span>
-            <span>Pemahaman Verbal |</span>
-            <span>Memori Kerja |</span>
-            <span>Kemampuan Numerik |</span>
+            <div class="marquee-group">
+                <span>Penalaran Logis |</span>
+                <span>Pengenalan Pola |</span>
+                <span>Kesadaran Spasial |</span>
+                <span>Pemahaman Verbal |</span>
+                <span>Memori Kerja |</span>
+                <span>Kemampuan Numerik |</span>
+            </div>
+
+            <div class="marquee-group" aria-hidden="true">
+                <span>Penalaran Logis |</span>
+                <span>Pengenalan Pola |</span>
+                <span>Kesadaran Spasial |</span>
+                <span>Pemahaman Verbal |</span>
+                <span>Memori Kerja |</span>
+                <span>Kemampuan Numerik |</span>
+            </div>
+
+            <div class="marquee-group" aria-hidden="true">
+                <span>Penalaran Logis |</span>
+                <span>Pengenalan Pola |</span>
+                <span>Kesadaran Spasial |</span>
+                <span>Pemahaman Verbal |</span>
+                <span>Memori Kerja |</span>
+                <span>Kemampuan Numerik |</span>
+            </div>
+
+            <div class="marquee-group" aria-hidden="true">
+                <span>Penalaran Logis |</span>
+                <span>Pengenalan Pola |</span>
+                <span>Kesadaran Spasial |</span>
+                <span>Pemahaman Verbal |</span>
+                <span>Memori Kerja |</span>
+                <span>Kemampuan Numerik |</span>
+            </div>
         </div>
     </div>
 
-    <section class="about">
+    <section class="about" id="about">
         <div class="about-container">
             <h2>Tentang MindMetric</h2>
             <div class="subtitle-box">
@@ -102,7 +136,7 @@
 
                 <div class="aboutcard-box2">
                     <div class="ilustration-box2">
-                        <img src="src/tetris.png" alt="Ilustrasi Penjelasan 2">
+                        <img src="src/tetrishalf.png" alt="Ilustrasi Penjelasan 2">
                     </div>
 
                     <h3>02</h3>
@@ -127,81 +161,86 @@
         </div>
     </section>
 
-    <section class="fitur">
-        <div class="fiturcard-container">
-            <div class="fiturcard-box1">
-                <h3>01</h3>
-                <p>
-                    Dirancang dengan teknologi yang memberikan pengalaman tes yang akurat dan berkesan.
-                </p>
-            </div>
+    <section class="fitur" id="feature">
+        <div class="fiturcard-parentcont">
+            <h2>Fitur Unggulan</h2>
 
-            <div class="fiturcard-box2">
-                <h3>02</h3>
-                <p>
-                    Beralih mulus antara "Dark Mode" dan "Light Mode" sesuai kenyamanan visual mata Anda tanpa jeda 
-                    pemuatan.
-                </p>
-            </div>
-
-            <div class="fiturcard-box3">
-                <h3>03</h3>
-                <p>
-                    Skor dan analisis metrik kognitif langsung keluar begitu tes selesai dikerjakan.
-                </p>
-            </div>
-
-            <div class="fiturcard-box3">
-                <h3>04</h3>
-                <p>
-                    Optimal diakses melalui PC, tablet, maupun ponsel pintar Anda.
-                </p>
-            </div>
-        </div>        
-    </section>
-
-    <section class="process">
-        <div class="flow-container">
-            <div class="flowtitle-box">
-                <h2>Alur Pengujian</h2>
-                <p>Empat langkah sistematis untuk memetakan profil kognitif Anda.</p>
-            </div>
-
-            <div class="firstflow-box">
-                <div class="leftfirst-box">
+            <div class="fiturcard-container">
+                <div class="fiturcard-box1">
                     <h3>01</h3>
+                    <p>
+                        Dirancang dengan teknologi yang memberikan pengalaman tes yang akurat dan berkesan.
+                    </p>
                 </div>
-                <span>- - - - ></span>
-                <div class="rightfirst-box">
-                    <h3>Mulai Tes</h3>
-                    <p>Masuk ke lembar uji interaktif tanpa proses registrasi yang rumit.</p>
-                </div>
-            </div>
 
-            <div class="secondflow-box">
-                <div class="leftsecond-box">
+                <div class="fiturcard-box2">
                     <h3>02</h3>
+                    <p>
+                        Beralih mulus antara "Dark Mode" dan "Light Mode" sesuai kenyamanan visual mata Anda tanpa jeda 
+                        pemuatan.
+                    </p>
                 </div>
-                <span>- - - - ></span>
-                <div class="rightsecond-box">
-                    <h3>Jawab Soal</h3>
-                    <p>Selesaikan rangkaian tantangan logika, pola visual, dan numerik.</p>
-                </div>
-            </div>
 
-            <div class="thirdflow-box">
-                <div class="lefthird-box">
+                <div class="fiturcard-box3">
                     <h3>03</h3>
+                    <p>
+                        Skor dan analisis metrik kognitif langsung keluar begitu tes selesai dikerjakan.
+                    </p>
                 </div>
-                <div class="righthird-box">
-                    <h3>Terima Hasil</h3>
-                    <p>Dapatkan skor IQ kognitif Anda.</p>
+
+                <div class="fiturcard-box3">
+                    <h3>04</h3>
+                    <p>
+                        Optimal diakses melalui PC, tablet, maupun ponsel pintar Anda.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="main">
+        <section class="process" id="process">
+            <div class="flow-container">
+                <div class="flowtitle-box">
+                    <h2>Alur Pengujian</h2>
+                    <p>Tiga langkah sistematis untuk memetakan profil kognitif Anda.</p>
+                </div>
+
+                <div class="firstflow-box">
+                    <div class="leftfirst-box">
+                        <h3>01</h3>
+                    </div>
+                    <span>- - - - ></span>
+                    <div class="rightfirst-box">
+                        <h3>Mulai Tes</h3>
+                        <p>Masuk ke lembar uji interaktif tanpa proses registrasi yang rumit.</p>
+                    </div>
+                </div>
+
+                <div class="secondflow-box">
+                    <div class="leftsecond-box">
+                        <h3>02</h3>
+                    </div>
+                    <span>- - - - ></span>
+                    <div class="rightsecond-box">
+                        <h3>Jawab Soal</h3>
+                        <p>Selesaikan rangkaian tantangan logika, pola visual, dan numerik.</p>
+                    </div>
+                </div>
+
+                <div class="thirdflow-box">
+                    <div class="lefthird-box">
+                        <h3>03</h3>
+                    </div>
+                    <div class="righthird-box">
+                        <h3>Terima Hasil</h3>
+                        <p>Dapatkan skor IQ kognitif Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="main" id="main">
         <div class="cta-container">
             <h2>Siap Mengukur kemampuan Kognitifmu?</h2>
 
@@ -212,9 +251,31 @@
 
             <div class="cta-actionsbox">
                 <button id="start-quizbtn" class="btn-cta">
-                    Mulai Tes Sekarang <span>>></span>
+                    <a href="quiz.html">MULAI TES SEKARANG <span>>></span></a>
                 </button>
                 <span class="cta-estime">Estimasi waktu pengerjaan: ± 5-10 menit</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="biodata">
+        <div class="biodata-container">
+            <div class="firstbiodata-box">
+                <h2>Habibi Syazwan</h2>
+                <p>Sebagai Ketua projek ini dalam perencanaan dan pengusul Ide kreatif serta merangkap sebagai pembuat struktur dasar HTML beserta logika Javascript di Website ini.</p>
+                <span></span>
+            </div>
+
+            <div class="secondbiodata-box">
+                <h2>Aisha Ladiva Widodo</h2>
+                <p>Sebagai pembuat dan penanggung jawab dalam mengurusi Frontend di projek ini dengan bantuan CSS serta mengatur User Interface beserta Design dari Website ini.</p>
+                <span></span>
+            </div>
+
+            <div class="thirdbiodata-box">
+                <h2>Muhammad Romi Ilham</h2>
+                <p>Sebagai debugger di dalam projek ini agar web bisa berjalan dengan normal dan optimal tanpa bug sama sekali serta sebagai pengecek terakhir kodingan website ini.</p>
+                <span></span>
             </div>
         </div>
     </section>
@@ -222,7 +283,10 @@
     <footer>
         <div class="footer-container">
             <div class="left-footer">
-                <img src="src/1.png" alt="Logo Utama">
+                <div class="logo-footer logo-wrap">
+                    <img src="src/1.png" alt="Logo Dark" class="logo-footer logo-dark">
+                    <img src="src/2.png" alt="Logo Light" class="logo-footer logo-light">
+                </div>
                 <p>Platform evaluasi kognitif dan metrik penalaran logis berbasis web modern.</p>
                 <div class="social-box">
                     <a href="" target="_blank"><i class="fa-brands fa-github"></i></a>
@@ -235,16 +299,16 @@
                 <h4>Navigasi</h4>
                 <ul>
                     <li>
-                        <a href="#">Beranda</a>
-                        <a href="#">Tentang</a>
-                        <a href="#">Proses</a>
-                        <a href="#">Fitur</a>
+                        <a href="#home">Beranda</a>
+                        <a href="#about">Tentang</a>
+                        <a href="#feature">Fitur</a>
+                        <a href="#process">Proses</a>
                     </li>
                 </ul>
             </div>
 
             <div class="lowleft-footer">
-                <p>&copy; 2026 MindMetric. All Rights Reserved.</p>
+                <p>&copy; 2026 <span>MindMetric</span>. All Rights Reserved.</p>
             </div>
         </div>
     </footer>

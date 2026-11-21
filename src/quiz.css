@@ -189,11 +189,29 @@ header {
   letter-spacing: 0.02em;
 }
 
-.logoright-box img {
+.logoright-box .logo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
   max-height: 44px;
+  transform: scale(3);
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 10px var(--glow-rose));
+}
+
+.logoright-box .logo-light {
+  display: none;
+}
+
+body:has(#theme-switch:checked) .logoright-box .logo-dark,
+body.is-light-mode .logoright-box .logo-dark {
+  display: none;
+}
+
+body:has(#theme-switch:checked) .logoright-box .logo-light,
+body.is-light-mode .logoright-box .logo-light {
+  display: block;
 }
 
 .theme-switch {
@@ -366,6 +384,17 @@ header {
   gap: clamp(1.25rem, 2.2vw, 2rem);
 }
 
+.quiz-box {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.quiz-box.is-active {
+  display: grid;
+  animation: smoothReveal 360ms var(--ease-out) forwards;
+}
+
 [class^="quiz"][class$="-box"] {
   position: relative;
   background: linear-gradient(160deg, var(--hero-tint) 0%, transparent 45%), var(--surface-glass);
@@ -529,6 +558,11 @@ header {
 .nextbutton-box button:hover {
   transform: translateY(-2px);
   filter: brightness(1.08);
+}
+
+@keyframes smoothReveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0px); }
 }
 
 @keyframes panelEnter {
