@@ -530,6 +530,16 @@ body.is-light-mode .logoright-box .logo-light {
   object-fit: contain;
 }
 
+.firstanswer-box.is-selected,
+.secondanswer-box.is-selected,
+.thirdanswer-box.is-selected,
+.fourthanswer-box.is-selected {
+  background: var(--surface-tile-hover);
+  border-color: var(--line-hot);
+  box-shadow: 0 0 0 1px var(--line-hot), 0 12px 24px -6px var(--glow-rose);
+  transform: translateY(-2px);
+}
+
 .nextbutton-box {
   display: flex;
   justify-content: flex-end;
