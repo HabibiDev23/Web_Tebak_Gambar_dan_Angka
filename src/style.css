@@ -736,6 +736,78 @@ footer {
   color: var(--ink-muted);
 }
 
+.biodata {
+  width: min(100%, 1240px);
+  margin-inline: auto;
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 2.5vw, 2rem);
+}
+
+.biodata-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.biodata-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+  font-weight: 800;
+  color: var(--ink-bright);
+  margin-bottom: 0.4rem;
+}
+
+.biodata-header p {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.biodata-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.biodata-card {
+  background: var(--surface-tile);
+  border: 1px solid var(--line-faint);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.biodata-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-mid);
+}
+
+.biodata-tag {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  background: rgba(224, 72, 123, 0.15);
+  color: var(--rose-300);
+  border: 1px solid var(--line-faint);
+}
+
+.biodata-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink-bright);
+  margin-top: 0.25rem;
+}
+
+.biodata-card p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
 footer {
   margin-top: clamp(2rem, 4vw, 3rem);
   margin-bottom: 1.5rem;

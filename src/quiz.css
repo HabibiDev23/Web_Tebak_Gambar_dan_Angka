@@ -512,6 +512,16 @@ body.is-light-mode .logoright-box .logo-light {
   box-shadow: 0 10px 22px -6px var(--glow-rose);
 }
 
+.firstanswer-box.is-selected,
+.secondanswer-box.is-selected,
+.thirdanswer-box.is-selected,
+.fourthanswer-box.is-selected {
+  background: var(--surface-tile-hover);
+  border-color: var(--line-hot);
+  box-shadow: 0 0 0 2px var(--line-hot), 0 10px 22px -6px var(--glow-rose);
+  transform: translateY(-2px);
+}
+
 .firstanswer-box h4,
 .secondanswer-box h4,
 .thirdanswer-box h4,
