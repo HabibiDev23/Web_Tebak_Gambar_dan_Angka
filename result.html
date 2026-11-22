@@ -195,66 +195,59 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const themeToggle = document.getElementById("theme-switch");
-            const STORAGE_KEY = "faceted-rose-theme";
-            const currentTheme = localStorage.getItem(STORAGE_KEY);
-
-            if (currentTheme === "light") {
+            if (localStorage.getItem("faceted-rose-theme") === "light") {
                 themeToggle.checked = true;
                 document.body.classList.add("is-light-mode");
             }
-
             themeToggle.addEventListener("change", () => {
                 const isLight = themeToggle.checked;
                 document.body.classList.toggle("is-light-mode", isLight);
-                localStorage.setItem(STORAGE_KEY, isLight ? "light" : "dark");
+                localStorage.setItem("faceted-rose-theme", isLight ? "light" : "dark");
             });
 
-            let totalPoin = parseInt(localStorage.getItem("quiz-score"), 10);
-            if (isNaN(totalPoin)) totalPoin = 68;
+            let totalPoin = parseInt(localStorage.getItem("quiz-score")) || 0;
 
             let durasiText = "—";
-            let diffSec = 0;
+            let bonusWaktu = 0;
             const startedAt = localStorage.getItem("quiz-started-at");
             const submittedAt = localStorage.getItem("quiz-submitted-at");
+
             if (startedAt && submittedAt) {
-                const diffMs = new Date(submittedAt) - new Date(startedAt);
-                diffSec = Math.floor(diffMs / 1000);
+                const diffSec = Math.floor((new Date(submittedAt) - new Date(startedAt)) / 1000);
                 if (diffSec < 60) {
                     durasiText = diffSec + " detik";
                 } else {
-                    const menit = Math.floor(diffSec / 60);
-                    const sisa = diffSec % 60;
-                    durasiText = menit + " mnt " + sisa + " dtk";
+                    durasiText = Math.floor(diffSec / 60) + " mnt " + (diffSec % 60) + " dtk";
+                }
+
+                if (diffSec < 600 && totalPoin > 0) {
+                    bonusWaktu = ((600 - diffSec) / 600) * 3;
                 }
             }
 
-            let bonusWaktu = 0;
-            if (diffSec > 0 && diffSec < 600 && totalPoin > 0) {
-                bonusWaktu = ((600 - diffSec) / 600) * 3;
-            }
-
-            let calculatedIQ = Math.min(138, Math.max(85, Math.round(85 + (totalPoin / 100) * 50 + bonusWaktu)));
+            let calculatedIQ = Math.round(85 + (totalPoin / 100) * 50 + bonusWaktu);
 
             let statusText = "Rata-rata";
-            let insightText = "Pola jawaban Anda menunjukkan kemampuan penalaran di rentang rata-rata.";
+            let insightText = "Kemampuan penalaran Anda berada di rentang rata-rata.";
 
             if (totalPoin >= 91) {
                 statusText = "Sangat Superior";
-                insightText = "Luar biasa. Profil kognitif Anda menunjukkan kemampuan logika abstrak dan pemecahan pola tingkat tinggi.";
+                insightText = "Luar biasa. Profil kognitif Anda menunjukkan kemampuan logika dan pola tingkat tinggi.";
             } else if (totalPoin >= 76) {
                 statusText = "Superior";
-                insightText = "Kemampuan kognitif Anda sangat kuat dalam menangkap pola relasional dan analisis logika.";
+                insightText = "Kemampuan kognitif Anda sangat kuat dalam memahami logika dan pola relasional.";
             } else if (totalPoin >= 51) {
                 statusText = "Di Atas Rata-rata";
-                insightText = "Kapasitas berpikir Anda di atas rata-rata dengan dasar penalaran analitis yang solid.";
+                insightText = "Kapasitas berpikir Anda di atas rata-rata dengan penalaran analitis yang solid.";
             } else if (totalPoin >= 26) {
                 statusText = "Rata-rata";
                 insightText = "Kemampuan penalaran Anda berada di rentang rata-rata populasi.";
             } else {
                 statusText = "Di Bawah Rata-Rata";
-                insightText = "Latihan berkala pada soal pola visual dan logika dapat membantu meningkatkan ketajaman analitis Anda.";
+                insightText = "Latihan rutin pada soal pola visual dan logika dapat membantu meningkatkan ketajaman analitis Anda.";
             }
 
+            document.getElementById("angka-kognitif").textContent = calculatedIQ;
             document.getElementById("skor-poin").textContent = totalPoin + " / 100";
             document.getElementById("poin-display").textContent = totalPoin + " / 100 poin";
             document.getElementById("status-kognitif").textContent = statusText;
@@ -262,64 +255,20 @@
             document.getElementById("waktu-tes").textContent = durasiText;
             document.getElementById("deskripsi-kognitif").innerHTML = "<strong>Analisis:</strong> " + insightText;
 
-            const meterCircle = document.getElementById("meter-circle");
-            const circumference = 502;
-            const iqRatio = Math.min(Math.max((calculatedIQ - 80) / (140 - 80), 0.08), 1);
-            const offsetTarget = circumference - (iqRatio * circumference);
+            const iqRatio = Math.min(Math.max((calculatedIQ - 80) / 60, 0.08), 1);
+            document.getElementById("meter-circle").style.strokeDashoffset = 502 - (iqRatio * 502);
 
-            setTimeout(() => {
-                meterCircle.style.strokeDashoffset = offsetTarget;
-            }, 100);
+            let logikaVal = Math.min(100, totalPoin + 4);
+            let polaVal = totalPoin;
+            let numerikVal = Math.max(10, totalPoin - 4);
 
-            const angkaEl = document.getElementById("angka-kognitif");
-            let cur = 0;
-            const step = Math.max(12, Math.floor(1200 / calculatedIQ));
-            const counter = setInterval(() => {
-                cur += 2;
-                if (cur >= calculatedIQ) {
-                    cur = calculatedIQ;
-                    clearInterval(counter);
-                }
-                angkaEl.textContent = cur;
-            }, step);
+            document.getElementById("bar-logika").style.width = logikaVal + "%";
+            document.getElementById("bar-pola").style.width = polaVal + "%";
+            document.getElementById("bar-numerik").style.width = numerikVal + "%";
 
-            const bobotPoin = {
-                0: [2, 4, 8, 3],
-                1: [8, 0, 3, 1],
-                2: [2, 5, 1, 10],
-                3: [0, 9, 2, 3],
-                4: [11, 3, 4, 2],
-                5: [5, 6, 11, 5],
-                6: [5, 6, 11, 7],
-                7: [6, 4, 8, 12],
-                8: [5, 6, 3, 11],
-                9: [5, 9, 3, 2]
-            };
-
-            let ans = {};
-            const rawAnswers = localStorage.getItem("quiz-answers");
-            if (rawAnswers) {
-                ans = JSON.parse(rawAnswers);
-            }
-
-            const getP = (i) => (ans[i] && bobotPoin[i]) ? bobotPoin[i][ans[i].index] : Math.round(bobotPoin[i][0]);
-            const pLogika = getP(1) + getP(3) + getP(8) + getP(9);
-            const pPola = getP(2) + getP(5) + getP(6) + getP(7);
-            const pNumerik = getP(0) + getP(4);
-
-            const logikaVal = Math.min(100, Math.round((pLogika / 37) * 100));
-            const polaVal = Math.min(100, Math.round((pPola / 44) * 100));
-            const numerikVal = Math.min(100, Math.round((pNumerik / 19) * 100));
-
-            setTimeout(() => {
-                document.getElementById("bar-logika").style.width = logikaVal + "%";
-                document.getElementById("bar-pola").style.width = polaVal + "%";
-                document.getElementById("bar-numerik").style.width = numerikVal + "%";
-
-                document.getElementById("val-logika").textContent = logikaVal + "%";
-                document.getElementById("val-pola").textContent = polaVal + "%";
-                document.getElementById("val-numerik").textContent = numerikVal + "%";
-            }, 200);
+            document.getElementById("val-logika").textContent = logikaVal + "%";
+            document.getElementById("val-pola").textContent = polaVal + "%";
+            document.getElementById("val-numerik").textContent = numerikVal + "%";
 
             document.getElementById("btn-retry").addEventListener("click", () => {
                 localStorage.removeItem("quiz-completed");
@@ -334,10 +283,10 @@
             const btnShare = document.getElementById("btn-share");
             const toast = document.getElementById("toast-msg");
             btnShare.addEventListener("click", () => {
-                const txt = "🧠 Hasil MindMetric\nEstimasi IQ: " + calculatedIQ + " (" + statusText + ")\nPoin: " + totalPoin + "/100\nDurasi: " + durasiText;
+                const txt = "Hasil MindMetric\nEstimasi IQ: " + calculatedIQ + " (" + statusText + ")\nPoin: " + totalPoin + "/100\nDurasi: " + durasiText;
                 navigator.clipboard.writeText(txt).then(() => {
                     toast.classList.add("show");
-                    setTimeout(() => toast.classList.remove("show"), 2800);
+                    setTimeout(() => toast.classList.remove("show"), 2500);
                 });
             });
         });

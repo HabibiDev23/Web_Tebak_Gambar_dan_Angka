@@ -61,6 +61,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    function updateProgress(index) {
+        const total = steps.length;
+        const current = index + 1;
+        const percent = Math.round((current / total) * 100);
+
+        const fillEl = document.getElementById("quiz-progress-fill");
+        const numEl = document.getElementById("current-question-num");
+        const percentEl = document.getElementById("progress-percent");
+
+        if (fillEl) fillEl.style.width = percent + "%";
+        if (numEl) numEl.textContent = current;
+        if (percentEl) percentEl.textContent = percent + "%";
+    }
+
     function goToStep(index) {
         if (index < 0 || index >= steps.length) return;
 
@@ -75,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
         currentSteps = index;
+        updateProgress(index);
     }
 
     goToStep(currentSteps);
