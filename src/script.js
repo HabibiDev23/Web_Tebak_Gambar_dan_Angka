@@ -107,7 +107,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     Swal.fire({
                         icon: "warning",
                         title: "Belum Dijawab!",
-                        text: "Pilih salah satu jawaban dulu sebelum lanjut."
+                        text: "Pilih salah satu jawaban dulu sebelum lanjut.",
+                        customClass: {
+                            popup: "swal-popup",
+                            title: "swal-title",
+                            htmlContainer: "swal-text",
+                            confirmButton: "swal-btn",
+                            icon: "swal-icon"
+                        },
+                        buttonStyling: false
                     });
                 }
                 return;
@@ -126,7 +134,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     Swal.fire({
                         icon: "warning",
                         title: "Upss...",
-                        text: "Pilihlah salah satu jawaban dulu sebelum submit."
+                        text: "Pilihlah salah satu jawaban dulu sebelum submit.",
+                        customClass: {
+                            popup: "swal-popup",
+                            title: "swal-title",
+                            htmlContainer: "swal-text",
+                            confirmButton: "swal-btn"
+                        },
+                        buttonStyling: false
                     });
                 }
                 return;
@@ -148,6 +163,30 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "result.html";
         });
     });
+});
+
+document.addEventListener("keydown", (event) => {
+    const activeQuiz = document.querySelector(".quiz-box.is-active");
+    if (!activeQuiz) return;
+
+    const key = event.key.toLowerCase();
+    const options = activeQuiz.querySelectorAll(
+        ".firstanswer-box, .secondanswer-box, .thirdanswer-box, .fourthanswer-box"
+    );
+
+    const keyMap = { a:0, "1": 0, b:1, "2": 1, c:2, "3": 2, d:3, "4": 3 };
+    if (key in keyMap && options[keyMap[key]]) {
+        options[keyMap[key]].click();
+        return;
+    }
+
+    if (event.key === "Enter" || event.key === "ArrowRight") {
+        const nextBtn = activeQuiz.querySelector(".btn-next-step button, .btn-submit-quiz button");
+        if (nextBtn) {
+            event.preventDefault();
+            nextBtn.click();
+        }
+    }
 });
 
 // JAVASCRIPT RESULT \\

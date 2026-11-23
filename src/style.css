@@ -108,7 +108,7 @@ html {
   scroll-behavior: smooth;
 }
 
-#home, #about, #process, #feature, #main {
+#home, #about, #process, #feature, #main, #biodata {
   scroll-margin-top: 120px;
 }
 
@@ -147,6 +147,11 @@ body::after {
     linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: auto, 64px 64px, 64px 64px;
   mask-image: radial-gradient(ellipse 82% 78% at 50% 50%, #000 35%, transparent 92%);
+}
+
+main {
+  display: grid;
+  gap: clamp(1rem, 2vw, 3rem);
 }
 
 .starfield {
@@ -568,7 +573,8 @@ footer {
 
 .about-container,
 .flow-container,
-.cta-container {
+.cta-container,
+.biodata-parentcont {
   background: linear-gradient(160deg, var(--hero-tint) 0%, transparent 45%), var(--surface-glass);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -737,6 +743,11 @@ footer {
 }
 
 .biodata {
+  padding-bottom: min(100%, 12vw);
+  margin-top: 30px;
+}
+
+.biodata-parentcont {
   width: min(100%, 1240px);
   margin-inline: auto;
   padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 2.5vw, 2rem);
@@ -749,7 +760,7 @@ footer {
 
 .biodata-header h2 {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+  font-size: clamp(1.8rem, 1.4rem + 1.5vw, 3rem);
   font-weight: 800;
   color: var(--ink-bright);
   margin-bottom: 0.4rem;

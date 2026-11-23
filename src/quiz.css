@@ -621,6 +621,52 @@ body.is-light-mode .logoright-box .logo-light {
   filter: brightness(1.08);
 }
 
+.swal-popup {
+  background: linear-gradient(160deg, var(--hero-tint) 0%, transparent 45%), var(--surface-glass);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--line-mid);
+  clip-path: var(--poly-panel);
+  box-shadow: 0 24px 48px var(--shadow-drop);
+  transition: background 450ms var(--theme-ease), border-color 450ms var(--theme-ease);
+}
+
+.swal2-popup .swal2-icon.swal2-warning,
+.swal2-popup .swal-icon {
+  color: var(--ink-bright);
+  border-color: var(--line-hot);
+  background: linear-gradient(125deg, var(--rose-400), var(--rose-500) 60%, var(--rose-700));
+  box-shadow: 0px 0px 10px var(--glow-rose);
+}
+
+.swal-title {
+  font-family: var(--font-display);
+  color: var(--ink-soft);
+  font-size: clamp(1.45rem, 1.15rem + 1.2vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 0.65rem;
+}
+
+.swal-text {
+  color: var(--ink-muted);
+  line-height: 1.65;
+  letter-spacing: 1px;
+}
+
+.swal-btn {
+  background: linear-gradient(125deg, var(--rose-400), var(--rose-500) 60%, var(--rose-700));
+  border: none;
+  padding: 12px 60px;
+  color: #fff8fa;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.03em;
+  clip-path: var(--poly-cta);
+  cursor: pointer;
+  box-shadow: 0 10px 24px -6px var(--glow-rose);
+}
+
 @keyframes smoothReveal {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0px); }
