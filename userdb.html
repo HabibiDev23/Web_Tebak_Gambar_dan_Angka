@@ -52,18 +52,55 @@
 
     <main>
         <section class="hero" id="home">
-            <h1>Temukan <span>Potensi</span> Kognitifmu</h1>
-            <p>
-                Platform tes kognitif berbasis metrik modern untuk mengukur tingkat kecerdasan, penalaran logis, dan potensi berpikirmu secara akurat dan 
-                interaktif.
-            </p>
+            <div class="left-herobox">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-brain"></i>
+                    <span>Platform Evaluasi Kognitif</span>
+                </div>
 
-            <button class="">
-                <a href="#main">UJI SEKARANG !</a>
-            </button>
+                <h1>Temukan <span>Potensi</span> Kognitifmu</h1>
+                <p>
+                    Platform tes kognitif berbasis metrik modern untuk mengukur tingkat kecerdasan, penalaran logis, dan potensi berpikirmu secara akurat dan interaktif.
+                </p>
+
+                <div class="hero-actions">
+                    <button class="hero-btn-primary">
+                        <a href="quiz.html">MULAI TES SEKARANG <i class="fa-solid fa-arrow-right"></i></a>
+                    </button>
+                    <a href="#about" class="hero-btn-secondary">Pelajari Alur</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hero-stat-item">
+                        <strong>10</strong>
+                        <span>Soal Terstruktur</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat-item">
+                        <strong>±10 Mnt</strong>
+                        <span>Durasi Waktu</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat-item">
+                        <strong>Real-time</strong>
+                        <span>Skor &amp; Analisis</span>
+                    </div>
+                </div>
+            </div>
 
             <div class="right-imagebox">
-                <img src="src/Scatter.jpe" alt="Gambar/Ilustrasi Utama">
+                <div class="hero-image-card">
+                    <img src="src/Scatter.jpe" alt="Gambar/Ilustrasi Utama">
+                    <div class="hero-card-glow"></div>
+                    <div class="hero-floating-chip chip-top">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>Logika &amp; Spasial</span>
+                    </div>
+                    <div class="hero-floating-chip chip-bottom">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        <span>Skor 85 - 138 IQ</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -238,7 +275,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
 
         <section class="main" id="main">
@@ -321,6 +357,26 @@
             </div>
         </div>
     </footer>
-    
+
+    <script>
+      (function () {
+        const toggle = document.getElementById("theme-switch");
+        if (!toggle) return;
+
+        const STORAGE_KEY = "faceted-rose-theme";
+        const savedTheme = localStorage.getItem(STORAGE_KEY);
+
+        if (savedTheme === "light") {
+          toggle.checked = true;
+          document.body.classList.add("is-light-mode");
+        }
+
+        toggle.addEventListener("change", function () {
+          const isLight = toggle.checked;
+          document.body.classList.toggle("is-light-mode", isLight);
+          localStorage.setItem(STORAGE_KEY, isLight ? "light" : "dark");
+        });
+      })();
+    </script>
 </body>
 </html>

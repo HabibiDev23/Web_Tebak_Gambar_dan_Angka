@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             confirmButton: "swal-btn",
                             icon: "swal-icon"
                         },
-                        buttonStyling: false
+                        buttonsStyling: false
                     });
                 }
                 return;
@@ -139,9 +139,10 @@ document.addEventListener("DOMContentLoaded", () => {
                             popup: "swal-popup",
                             title: "swal-title",
                             htmlContainer: "swal-text",
-                            confirmButton: "swal-btn"
+                            confirmButton: "swal-btn",
+                            icon: "swal-icon"
                         },
-                        buttonStyling: false
+                        buttonsStyling: false
                     });
                 }
                 return;
@@ -166,6 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("keydown", (event) => {
+    if (typeof Swal !== "undefined" && Swal.isVisible()) return;
     const activeQuiz = document.querySelector(".quiz-box.is-active");
     if (!activeQuiz) return;
 
