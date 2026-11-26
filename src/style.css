@@ -174,6 +174,22 @@ main {
     radial-gradient(1.5px 1.5px at 85% 15%, rgba(255, 245, 248, 0.75), transparent);
 }
 
+.starfield::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  will-change: opacity;
+  background-image: 
+    radial-gradient(2px 2px at 22% 76%, rgba(255, 245, 248, 0.95), transparent 100%),
+    radial-gradient(20px 20px at 22% 76%, rgba(244, 127, 166, 0.25), transparent 70%),
+    radial-gradient(2px 2px at 51% 11%, rgba(254, 240, 138, 0.92), transparent 100%),
+    radial-gradient(22px 22px at 51% 11%, rgba(253, 230, 138, 0.18), transparent 72%),
+    radial-gradient(1.8px 1.8px at 78% 28%, rgba(255, 214, 228, 0.95), transparent 100%),
+    radial-gradient(18px 18px at 78% 28%, rgba(224, 72, 123, 0.22), transparent 70%);
+  animation: starTwinkle 2s ease-in-out infinite alternate;
+}
+
 header,
 section,
 .marquee-container,
@@ -1104,6 +1120,12 @@ footer {
 @keyframes marqueeSlide {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+@keyframes starTwinkle {
+  0% { opacity: 0.45; }
+  50% { opacity: 1; }
+  100% { opacity: 0.45; }
 }
 
 @media (max-width: 900px) {
